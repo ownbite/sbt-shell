@@ -10,13 +10,13 @@ class webb(
 	class { "webb::git-settings": }
 
 	# Include grunt
-	class { "webb::grunt-settings": }
+	# class { "webb::grunt-settings": }
 
 	# Include nginx
 	class { "webb::nginx-settings": }
 
 	# Set requirments
-	Class["webb::python-settings"] -> Class["webb::git-settings"] -> Class["webb::grunt-settings"] -> Class["webb::nginx-settings"]
+	Class["webb::python-settings"] -> Class["webb::git-settings"] -> Class["webb::nginx-settings"] #-> Class["webb::grunt-settings"]
 
 }
 

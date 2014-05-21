@@ -6,9 +6,14 @@ class webb::nginx-settings(
 
 ) inherits webb::params {
 	
+	package { "nginx":
+		ensure => installed,
+	}
+
 	file { [ "/etc/nginx/conf.d/default.conf" ]:
 		source => "puppet:///modules/webb/default.conf",
-		notify => Service['nginx']
+		notify => Service['nginx'],
+		require => Package['nginx']
 	}
 
 	service { "nginx":
