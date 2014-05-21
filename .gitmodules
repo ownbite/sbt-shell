@@ -1,0 +1,3 @@
+[submodule "sbt"]
+	path = sbt
+	url = https://github.com/ownbite/sbt.git
